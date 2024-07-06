@@ -1,13 +1,57 @@
+@import url("https://fonts.googleapis.com/css2?family=Dosis:wght@10;200;400;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Arizonia:wght@10;200;400;600;700;800&display=swap");
+
+:root {
+  --color-1: #687351;
+  --color-2: #9ba17f;
+  --color-3: #e8e4db;
+  --color-4: #c9c1ae;
+  --shadow-color: rgba(0, 0, 0, 0.5);
+}
+
+html,
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  padding: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+h2 {
+  font-family: "Dosis";
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+ul li {
+  padding: 10px;
+  margin: 2px;
+  text-decoration: none;
+  font-size: 1.2rem;
+  display: block;
+}
+
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+  border-radius: 50%;
+  padding: 0.4em;
+  margin: 0.5rem;
 }

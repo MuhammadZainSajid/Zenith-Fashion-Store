@@ -1,38 +1,290 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+#root {
   min-height: 100vh;
+  min-width: 99vw;
+}
+
+.App {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+
+  overflow-x: hidden;
 }
 
-.App-link {
-  color: #61dafb;
+#light {
+  background-color: var(--color-4);
+  color: var(--color-1);
+  transition: linear all 1s;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#dark {
+  background-color: var(--color-1);
+  color: var(--color-3);
+  transition: linear all 1s;
+}
+
+.App-logo {
+  font-family: "Arizonia", cursive;
+  font-weight: 700;
+  font-size: 3rem;
+  letter-spacing: 0.04em;
+}
+
+/* App Header */
+.App-header {
+  height: 40px;
+  width: 100%;
+
+  padding: 10px;
+  margin: 0;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+
+  cursor: default;
+}
+
+#light .App-header {
+  background-color: var(--color-3);
+  box-shadow: 0 0 10px 0 var(--shadow-color);
+  transition: linear all 1s;
+}
+
+#dark .App-header {
+  background-color: var(--color-2);
+  box-shadow: 0 0 10px 0 var(--shadow-color);
+  transition: linear all 1s;
+}
+
+#light .material-symbols-outlined {
+  color: var(--color-1);
+  background-color: var(--color-3);
+  border: thin solid var(--color-1);
+  transition: linear all 1s;
+}
+
+#dark .material-symbols-outlined {
+  color: var(--color-3);
+  background-color: var(--color-2);
+  border: thin solid var(--color-3);
+  transition: linear all 1s;
+}
+
+/* Nav Styles */
+.nav {
+  position: fixed;
+
+  top: 0;
+  left: -250px;
+
+  z-index: 1;
+
+  width: 250px;
+  height: 100vh;
+
+  transition: ease-in-out all 0.2s;
+}
+
+#light .nav {
+  color: var(--color-1);
+  background-color: var(--color-3);
+  box-shadow: 0 0 10px 0 var(--shadow-color);
+  transition: linear all 1s;
+}
+
+#dark .nav {
+  color: var(--color-3);
+  background-color: var(--color-2);
+  box-shadow: 0 0 10px 0 var(--shadow-color);
+  transition: linear all 1s;
+}
+
+.nav.open {
+  left: 0;
+}
+
+.navList {
+  margin-top: 10px;
+}
+
+.navList li:hover {
+  background-color: var(--color-1);
+  color: var(--color-3);
+}
+
+.material-symbols-outlined.close-btn {
+  position: relative;
+  top: 10px;
+  right: -200px;
+
+  font-size: 2rem;
+
+  margin: 0;
+  padding: 0;
+
+  border: thin solid var(--color-3);
+  cursor: pointer;
+}
+
+/* Section Styles */
+.section {
+  position: relative;
+  font-family: "Roboto", sans-serif;
+
+  width: 80%;
+  height: auto;
+
+  margin: 2em 0 2em 0;
+  padding: 2em;
+
+  border-radius: 8px;
+
+  text-align: center;
+}
+
+#light .section {
+  background-color: var(--color-3);
+  box-shadow: 0 0 16px var(--shadow-color);
+  transition: linear all 1s;
+}
+
+#dark .section {
+  background-color: var(--color-2);
+  box-shadow: 0 0 16px var(--shadow-color); /* Updated shadow color for dark mode */
+  transition: linear all 1s;
+}
+
+.section h2 {
+  font-size: 2rem;
+  margin: 0 0 2em 0;
+}
+
+.section ul {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  column-gap: 0.5em;
+  row-gap: 2em;
+}
+
+/* Product Card Styles */
+.product-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 250px;
+  aspect-ratio: 1 / 1.5;
+
+  padding: 1em;
+
+  border-radius: 8px;
+
+  cursor: pointer;
+}
+
+#light .product-card {
+  background-color: var(--color-4);
+  box-shadow: 0 0 16px var(--shadow-color);
+  transition: ease-in-out all 1s, transform 0.2s;
+}
+
+#dark .product-card {
+  background-color: var(--color-1);
+  box-shadow: 0 0 16px var(--shadow-color);
+  transition: ease-in-out all 1s, transform 0.2s;
+}
+
+.product-card:hover {
+  transform: scale(1.02);
+}
+
+.product-card button {
+  font-weight: bold;
+
+  width: 100%;
+
+  padding: 0.5em 1em;
+  margin-top: 1em;
+
+  color: var(--color-1);
+  background-color: var(--color-3);
+
+  border: none;
+  border-radius: 8px;
+
+  transition: linear all 0.1s;
+}
+
+.product-card button:hover {
+  color: var(--color-3);
+  background-color: var(--color-1);
+}
+
+/* Image Container Styles */
+.img-container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 2/1;
+  border-radius: 8px;
+}
+
+.bannerImg {
+  display: block;
+  width: 100%;
+  aspect-ratio: 2/1;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.product_img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1/1;
+  object-fit: fill;
+  border-radius: 8px;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  color: var(--color-3);
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+  opacity: 0;
+  transition: ease opacity 0.3s;
+}
+
+.overlay h2 {
+  font-size: 8rem;
+  font-weight: lighter;
+  margin-bottom: 1rem;
+}
+
+.overlay button {
+  padding: 1em 2em;
+  color: var(--color-1);
+  background-color: var(--color-3);
+  border: none;
+  border-radius: 8px;
+  transition: linear all 0.1s;
+}
+
+.overlay button:hover {
+  color: var(--color-3);
+  background-color: var(--color-1);
+}
+
+.overlay:hover {
+  opacity: 1;
 }
